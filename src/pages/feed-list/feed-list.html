@@ -1,49 +1,66 @@
-
 <ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Home</ion-title>
+    </ion-navbar>
+  </ion-header>
+ 
 
-  <ion-navbar>
-    <ion-title>feedList</ion-title>
-  </ion-navbar>
+ <ion-content class="cards-bg">
 
-</ion-header>
+  <ion-card>
 
+    <img src="http://images.indianexpress.com/2016/12/rahul-modi-comments-759.jpg" />
+    <ion-card-content>
+      <ion-card-title>
+        Rahul Gandhi,Blame Dynasty On Your Family,Not Indian Society
+      </ion-card-title>
+      <p>
+        I am not as surprised by Rahul Gandhi's statement in Berkeley, California, as I am by Smriti Irani's ...
+      </p>
+    </ion-card-content>
 
-<ion-content padding>
-  <ion-content class="cards-bg">
-    
-      <ion-card>
-    
-        <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png"/>
-    
-        <ion-card-content>
-          <ion-card-title>
-            Nine Inch Nails Live
-          </ion-card-title>
-          <p>
-            The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
-          </p>
-        </ion-card-content>
-    
-        <ion-row no-padding>
-          <ion-col>
-            <button ion-button clear small color="danger" icon-start>
-              <ion-icon name='star'></ion-icon>
-              Favorite
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button like small color="primary" icon-start>
+              <ion-icon name='ios-thumbs-up'></ion-icon>
+              Like
             </button>
-          </ion-col>
-          <ion-col text-center>
-            <button ion-button clear small color="danger" icon-start>
-              <ion-icon name='musical-notes'></ion-icon>
-              Listen
-            </button>
-          </ion-col>
-          <ion-col text-right>
-            <button ion-button clear small color="danger" icon-start>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button like small color="primary" icon-start>
               <ion-icon name='share-alt'></ion-icon>
               Share
             </button>
-          </ion-col>
-        </ion-row>
-    
-      </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+
+    <img src="https://drop.ndtv.com/liveblog/prod/1749434/636408589846568250..jpg" />
+    <ion-card-content>
+      <ion-card-title>
+        iPhone X With Face ID Facial Recognition Unveiled, iPhone 8 Launched Too: Live Updates
+      </ion-card-title>
+
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button like small color="primary" icon-start>
+                    <ion-icon name='ios-thumbs-up'></ion-icon>
+                    Like
+                  </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button like small color="primary" icon-start>
+                    <ion-icon name='share-alt'></ion-icon>
+                    Share
+                  </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>

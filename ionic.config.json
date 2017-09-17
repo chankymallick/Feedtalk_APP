@@ -1,6 +1,8 @@
 {
   "name": "Feedtalk",
-  "app_id": "786742a5",
+  "app_id": "b8aa8033",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

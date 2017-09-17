@@ -7,6 +7,7 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+  Types: string = "Feeds";
   constructor(public navCtrl: NavController) {
 
   }

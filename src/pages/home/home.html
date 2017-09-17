@@ -1,18 +1,172 @@
-<ion-header>
-  <ion-navbar>
+<ion-header class="header">
+  <ion-navbar class="nav-bar-header" color="header_color">
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <div class="titleicon">
+      <img src="../assets/feedtalk.png" height="50px" width="140px" />
+    </div>
   </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="Types">
+      <ion-segment-button value="Feeds">
+        Feeds
+      </ion-segment-button>
+      <ion-segment-button value="Trending">
+        Trending
+      </ion-segment-button>
+      <ion-segment-button value="Others">
+        Others
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content class="pageContent">
+  <div [ngSwitch]="Types">
+    <ion-list *ngSwitchCase="'Feeds'">
+        <ion-card>
+            <img src="http://images.indianexpress.com/2016/12/rahul-modi-comments-759.jpg" />
+            <ion-card-content>
+              <ion-card-title>
+                Rahul Gandhi,Blame Dynasty On Your Family,Not Indian Society
+              </ion-card-title>
+              <p>
+                I am not as surprised by Rahul Gandhi's statement in Berkeley, California, as I am by Smriti Irani's ...
+              </p>
+            </ion-card-content>
+        
+            <ion-row no-padding>
+              <ion-col>
+                <button ion-button like small color="primary" icon-start>
+                        <ion-icon name='ios-thumbs-up'></ion-icon>
+                        Like(0)
+                      </button>
+              </ion-col>
+              <ion-col text-right>
+                <button ion-button like small color="primary" icon-start>
+                        <ion-icon name='share-alt'></ion-icon>
+                        Share
+                      </button>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+    </ion-list>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-list *ngSwitchCase="'Trending'">     
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img height="100px" width="100px" src="http://data1.ibtimes.co.in/cache-img-0-450/en/full/625282/1478425630_ndtv-logo.png">
+              </ion-thumbnail>
+              <div style="height:80px; white-space: pre-line;">
+                iPhone X With Face ID Facial Recognition Unveiled iPhone 8 Launched Too: Live Updates
+              </div>
+              <p>NDTV - 10-12-2016</p>
+            </ion-item>
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img height="100px" width="100px" src="../assets/toi.jpg">
+              </ion-thumbnail>
+              <div style="height:80px; white-space: pre-line;">
+                iPhone X With Face ID Facial Recognition Unveiled iPhone 8 Launched Too: Live Updates
+              </div>
+              <p>Times Of India 10-12-2016</p>
+            </ion-item>
+          </ion-list> 
+    <ion-list *ngSwitchCase="'Others'">
+      
+    </ion-list>
+  </div>
 </ion-content>
+
+
+
+
+<!-- 
+<ion-content class="cards-bg">
+  <ion-card>
+    <img src="http://images.indianexpress.com/2016/12/rahul-modi-comments-759.jpg" />
+    <ion-card-content>
+      <ion-card-title>
+        Rahul Gandhi,Blame Dynasty On Your Family,Not Indian Society
+      </ion-card-title>
+      <p>
+        I am not as surprised by Rahul Gandhi's statement in Berkeley, California, as I am by Smriti Irani's ...
+      </p>
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button like small color="primary" icon-start>
+                <ion-icon name='ios-thumbs-up'></ion-icon>
+                Like
+              </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button like small color="primary" icon-start>
+                <ion-icon name='share-alt'></ion-icon>
+                Share
+              </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+
+  <ion-card>
+    <img src="http://images.indianexpress.com/2016/12/rahul-modi-comments-759.jpg" />
+    <ion-card-content>
+      <ion-card-title>
+        Rahul Gandhi,Blame Dynasty On Your Family,Not Indian Society
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+ 
+  <ion-card>
+    <img src="https://drop.ndtv.com/liveblog/prod/1749434/636408589846568250..jpg" />
+    <ion-card-content>
+      <ion-card-title>
+        iPhone X With Face ID Facial Recognition Unveiled, iPhone 8 Launched Too: Live Updates
+      </ion-card-title>
+
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col text-left>
+        <button ion-button like small color="primary" icon-start>
+                    <ion-icon name='ios-thumbs-up'></ion-icon>
+                    Like
+                  </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button like small color="primary" icon-start>
+                    <ion-icon name='share-alt'></ion-icon>
+                    Share
+                  </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img height="100px" width="100px" src="http://data1.ibtimes.co.in/cache-img-0-450/en/full/625282/1478425630_ndtv-logo.png">
+      </ion-thumbnail>
+      <div style="height:80px; white-space: pre-line;">
+        iPhone X With Face ID Facial Recognition Unveiled iPhone 8 Launched Too: Live Updates
+      </div>
+      <p>NDTV - 10-12-2016</p>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img height="100px" width="100px" src="../assets/toi.jpg">
+      </ion-thumbnail>
+      <div style="height:80px; white-space: pre-line;">
+        iPhone X With Face ID Facial Recognition Unveiled iPhone 8 Launched Too: Live Updates
+      </div>
+      <p>Times Of India 10-12-2016</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
+ -->
