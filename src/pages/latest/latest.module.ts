@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { FeedListPage } from './feed-list';
-
+import { LatestPage } from './latest';
 
 @NgModule({
   declarations: [
-    FeedListPage,
+    LatestPage,
   ],
   imports: [
-    IonicPageModule.forChild(FeedListPage),
+    IonicPageModule.forChild(LatestPage),
   ],
 })
-export class FeedListPageModule {}
+export class LatestPageModule {}

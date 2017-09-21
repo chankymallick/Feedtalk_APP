@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>latest</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top [color]="'y_orange'">
+    <ion-segment [(ngModel)]="Types"  (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="All">
+        All
+      </ion-segment-button>
+      <ion-segment-button value="Politics">
+        Politics
+      </ion-segment-button>
+      <ion-segment-button value="Others">
+        Others
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="pageContent">    
+<div [ngSwitch]="Types">
+  <ion-list *ngSwitchCase="'All'">
+    <ion-card *ngFor="let index of [0,1,2,3,4,5,6,7,8,9,10]">
+      <img src="http://images.indianexpress.com/2016/12/rahul-modi-comments-759.jpg" />
+      <ion-card-content>
+        <ion-card-title>
+          Rahul Gandhi,Blame Dynasty On Your Family,Not Indian Society
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</div>
+</ion-content>
