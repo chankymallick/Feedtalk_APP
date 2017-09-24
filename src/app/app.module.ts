@@ -4,26 +4,43 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ArticleviewerPage } from '../pages/articleviewer/articleviewer'
 
-import { LatestPage} from '../pages/latest/latest';
-import { TrendingPage} from '../pages/trending/trending';
-import { OthersPage} from '../pages/others/others';
+import { LatestPage } from '../pages/latest/latest';
+import { TrendingPage } from '../pages/trending/trending';
+import { OthersPage } from '../pages/others/others';
+
+import { Facebook } from '@ionic-native/facebook'
+import { GooglePlus } from '@ionic-native/google-plus';
+import { AngularFireModule } from 'angularfire2';
+import firebase from 'firebase';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+export const firebaseConfig = {
 
+  apiKey: "AIzaSyAM7NSBgxZsPYXDoROUdHMhjmT4_Dcyl8E",
+  authDomain: "feedtalk-sep2017.firebaseapp.com",
+  databaseURL: "https://feedtalk-sep2017.firebaseio.com",
+  projectId: "feedtalk-sep2017",
+  storageBucket: "feedtalk-sep2017.appspot.com",
+  messagingSenderId: "717530962060"
+}
+firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,  
+    HomePage,
     TrendingPage,
     LatestPage,
-    OthersPage
+    OthersPage,
+    ArticleviewerPage
 
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -31,12 +48,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TrendingPage,
     LatestPage,
-    OthersPage
+    OthersPage,
+    ArticleviewerPage
   ],
   providers: [
     StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    SplashScreen, GooglePlus,Facebook,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
