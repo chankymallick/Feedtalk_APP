@@ -1,51 +1,68 @@
 <ion-menu [content]="content">
+
   <ion-header>
-    <ion-toolbar>
-      <ion-title>Settings</ion-title>
-    </ion-toolbar>
-   
+    <div class="side_menu_header">
+      <ion-title style="text-align: center;">
+        <h2 style="color:white;">Menu</h2>
+      </ion-title>
+    </div>
   </ion-header>
-  <ion-content> 
+
+  <ion-content class="side-menu">
     <ion-list no-border>
-      <!-- <ion-list-header>
+      <!-- 
+        <ion-list-header>
         Settings
       </ion-list-header> -->
-      <ion-item>
-        <div class="profile_div"  *ngIf="isLoggedIn">
+      <ion-item class="side-menu">
+        <div class="profile_div" *ngIf="isLoggedIn">
           <img class="profile_img" src='{{userLoggedInImageUrl}}'>
-          <h2>{{userLoggedInEmail}}</h2>
-          <p>Hi {{userLoggedInName}} welcome Back</p>
+          <h2 style="font-size: 20px;font-weight:bold;">{{userLoggedInName}}</h2>
+          <p style="font-size: 18px;font-weight:bold;color:gray;">{{userLoggedInEmail}}</p>
+        </div>
+        <div class="profile_div" *ngIf="!isLoggedIn">
+          <img class="feedtalklogo" src='assets/feedtalk.png'>
+          <h2 style="font-size: 20px;font-weight:bold;">Log in to make comments</h2>         
         </div>
       </ion-item>
-      
-      <ion-item>
+
+      <ion-item class="side-menu">
         <ion-icon name='planet' item-start></ion-icon>
-        Astronomy
+        Favourits
         <ion-note item-end>
-          To the moon
+          (5)
         </ion-note>
       </ion-item>
 
-      <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
+      <ion-item class="side-menu">
         <ion-label>
-          Muggle Studies
+          My Comments
         </ion-label>
         <ion-icon name='body' item-start></ion-icon>
       </ion-item>
 
-      <ion-item>
+
+
+      <ion-item class="side-menu">
+        <ion-toggle checked="false"></ion-toggle>
+        <ion-label>
+          Notifications
+        </ion-label>
+        <ion-icon name='body' item-start></ion-icon>
+      </ion-item>
+
+      <ion-item class="side-menu">
         <button large ion-button icon-left (click)="newGoogleLogin()" *ngIf="!isLoggedIn" block color="danger">
           <ion-icon name="logo-googleplus"></ion-icon>
-          Google Login
+           Login
         </button>
-        <button large ion-button icon-left (click)="logout()"  *ngIf="isLoggedIn" block color="danger">
+        <button large ion-button icon-left (click)="logout()" *ngIf="isLoggedIn" block color="danger">
           <ion-icon  name="log-out"></ion-icon>
           Logout
         </button>
         <button large ion-button icon-left (click)="facebookLogin()" *ngIf="!isLoggedIn" block color="primary">
           <ion-icon name="logo-facebook"></ion-icon>
-          Facebook Login
+           Login
         </button>
       </ion-item>
     </ion-list>

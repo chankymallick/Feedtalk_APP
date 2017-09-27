@@ -1,48 +1,76 @@
 .titleicon {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    text-align: center;
-  }
-  
-  .header {
-    height: 60px;
-  }
-  
-  .nav-bar-header {
-    height: 100%;
-  }
-  
-  .pageContent {
-    margin-top: 50px;
-  }
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}
 
-  .hide-card {
-    -webkit-box-shadow: none!important;
-  }
-  
-  .custom-avatar {
-    height: 30vw;
-    width: 30vw;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    
-  }
-  .ion-profile-card{
-    box-shadow: none !important;
-  }
-  .profile_div{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;  
-  }
-  .profile_img{
-    border-radius:50%;
-    height:100px;
-    width:100px;
-  }
+.header {
+  height: 60px;
+}
+
+.nav-bar-header {
+  height: 100%;
+}
+
+.pageContent {
+  margin-top: 50px;
+}
+
+.hide-card {
+  -webkit-box-shadow: none!important;
+}
+
+.custom-avatar {
+  height: 30vw;
+  width: 30vw;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ion-profile-card {
+  box-shadow: none !important;
+}
+
+.profile_div {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.profile_img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+.feedtalklogo {
+  height: 70px;
+  width: 70%;
+}
+
+.side_menu_header {
+  background-color: red;
+  height: 100%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
+  background: #45484d;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #45484d 0%, #000000 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #45484d 0%, #000000 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #45484d 0%, #000000 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000', GradientType=0);
+  /* IE6-9 */
+}
+
+.side-menu{
+  background-color:#3D3D3D;
+  color:white;
+  font-size:20px;
+}

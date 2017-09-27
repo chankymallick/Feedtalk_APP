@@ -1,3 +1,4 @@
+
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -15,6 +16,8 @@ import firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook'
 
 
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -28,7 +31,7 @@ export class MyApp {
   userLoggedInName = null;
   rootPage: any = HomePage;
   currentUser;
-  pages: Array<{ title: string, component: any }>;
+
 
   constructor(
     public platform: Platform,
@@ -36,36 +39,28 @@ export class MyApp {
     public splashScreen: SplashScreen,
     public googlePlus: GooglePlus,
     public facebook: Facebook,
-    public progress: LoadingController
-
+    public progress: LoadingController  
   ) {
-    this.startProgress("Checking sign in status ...");
+
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.currentUser = user;
         this.setLoggedInStatus();
-        this.stopProgress();
+
       }
       else {
         this.setLogOutInStatus();
-        this.stopProgress();
+
       }
     });
     this.initializeApp();
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage }
-    ];
 
   }
 
   public initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-
+      this.statusBar.styleDefault();      
+      this.splashScreen.hide();     
     });
   }
   public setLoggedInStatus() {
@@ -92,7 +87,7 @@ export class MyApp {
       'offline': true
     }).then(res => {
       firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken)).then(user => {
-     
+
       }).catch(ns => {
         alert("Login Unsuccesfull");
       })
@@ -100,18 +95,19 @@ export class MyApp {
 
   }
   public newGoogleLogin() {
-    this.startProgress("Logging in , please wait ...");
+
     this.login();
-    
+
   }
   public logout() {
-    this.startProgress("Logging out , please wait ...");
+
     firebase.auth().signOut();
-    this.setLogOutInStatus();
-   
+
+
   }
 
   public facebookLogin(): Promise<any> {
+
     return this.facebook.login(['email'])
       .then(response => {
         const facebookCredential = firebase.auth.FacebookAuthProvider
@@ -121,12 +117,12 @@ export class MyApp {
           .then(success => {
           });
 
-      }).catch((error) => { alert(JSON.stringify(error)) });
+      }).catch((error) => { });
   }
   public startProgress(val) {
     this.progressObject = this.progress.create({
       content: val,
-      duration: 5000,
+
       dismissOnPageChange: true
     });
     this.progressObject.present();
