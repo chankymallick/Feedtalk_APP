@@ -5,6 +5,7 @@ declare var cordova: any;
 import { Component, ViewChild } from '@angular/core';
 import { Content } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { RestapiServiceProvider } from '../../providers/restapi-service/restapi-service';
 
 @IonicPage()
 @Component({
@@ -14,9 +15,13 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 export class TrendingPage {
   @ViewChild(Content) content: Content;
   Types = "All";
+  AllLinks;
   platform;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private platfrm: Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private platfrm: Platform, public restApi: RestapiServiceProvider) {
     this.platform = platfrm;
+    restApi.getLatestFeeds("https://192.168.43.148:8443/feedlinks").then(data => {     
+      this.AllLinks =data;    
+    });   
   }
   public segmentChanged(eventObj: any) {
     this.content.scrollToTop();
@@ -24,13 +29,12 @@ export class TrendingPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TrendingPage');
   }
+  public loadFeedLinks(){
 
-  public openExternalLink() {
+  }
+  public openExternalLink(link:any) {
     this.platform.ready().then(() => {
-      if (cordova && cordova.InAppBrowser) {
-        window.open = cordova.InAppBrowser.open;
-        window.open("https://www.google.co.in", '_system');
-      }
+      window.open(link, '_system');     
     });
   }
 

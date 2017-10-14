@@ -10,4 +10,7 @@ import { ArticleviewerPage } from './articleviewer';
     IonicPageModule.forChild(ArticleviewerPage),
   ],
 })
-export class ArticleviewerPageModule {}
+export class ArticleviewerPageModule {
+
+  
+}

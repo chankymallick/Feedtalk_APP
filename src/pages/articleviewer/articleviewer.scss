@@ -1,3 +1,36 @@
-page-articleviewer {
+page-articleviewer {}
 
+.articleHeadline {
+  text-align: left;
+  padding: 10px;
+  font-size: 32px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: bold;
+  color: slategray;
 }
+
+.articleContent {
+  text-align: justify;
+  padding: 10px;
+  font-size:20px;
+  font-weight: bold;
+  color:#4E5863;
+  line-height:140%;
+}
+.card-background-page {
+    
+      ion-card {
+        position: relative;
+        text-align: center;
+      }
+    
+      
+      .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 90%;
+        width: 100%;
+        color: #fff;
+      }
+    
+    }

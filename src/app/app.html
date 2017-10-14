@@ -1,12 +1,15 @@
 <ion-menu [content]="content">
 
-  <ion-header>
-    <div class="side_menu_header">
+  <ion-header>      
+    <div class="side_menu_header">       
       <ion-title style="text-align: center;">
-        <h2 style="color:white;">Menu</h2>
+        <h2 style="color:white;">Menu</h2>        
       </ion-title>
     </div>
   </ion-header>
+
+
+ 
 
   <ion-content class="side-menu">
     <ion-list no-border>
@@ -14,7 +17,7 @@
         <ion-list-header>
         Settings
       </ion-list-header> -->
-      <ion-item class="side-menu">
+      <ion-item class="side-menu" >
         <div class="profile_div" *ngIf="isLoggedIn">
           <img class="profile_img" src='{{userLoggedInImageUrl}}'>
           <h2 style="font-size: 20px;font-weight:bold;">{{userLoggedInName}}</h2>

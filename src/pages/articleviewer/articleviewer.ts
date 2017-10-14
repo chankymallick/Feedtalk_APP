@@ -9,7 +9,10 @@ import { ModalController, Platform, ViewController } from 'ionic-angular';
 })
 export class ArticleviewerPage {
 
+  Feed:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController,public platform: Platform) {
+  this.Feed = navParams.get('feed');
+  console.log(this.Feed);
   }
 
   ionViewDidLoad() {
@@ -17,6 +20,9 @@ export class ArticleviewerPage {
   }
   dismiss() {
     this.viewCtrl.dismiss();
+  }
+  public getDecodedTrimmedText(encodedText:string){    
+    return decodeURI(encodedText);   
   }
 }
 

@@ -22,14 +22,14 @@
 <ion-content class="pageContent">
   <div [ngSwitch]="Types">
     <ion-list *ngSwitchCase="'All'">
-      <ion-item *ngFor="let index of [0,1,2,3,4,5,6,7,8,9,10,11]" (click)="openExternalLink()">
+      <ion-item *ngFor="let FeedLink of AllLinks" (click)="openExternalLink(FeedLink.linkUrl)">
         <ion-thumbnail item-start>
-          <img height="100px" width="100px" src="http://data1.ibtimes.co.in/cache-img-0-450/en/full/625282/1478425630_ndtv-logo.png">
+          <img height="100px" width="100px" src="{{FeedLink.headlineImageUrl}}">
         </ion-thumbnail>
         <div style="height:80px; white-space: pre-line;">
-          iPhone X With Face ID Facial Recognition Unveiled iPhone 8 Launched Too: Live Updates
+         {{FeedLink.headline}}
         </div>
-        <p>NDTV - 10-12-2016</p>
+        <p>{{FeedLink.sourceAgency}} - {{FeedLink.linkDate}}</p>
       </ion-item>     
     </ion-list>
   </div>

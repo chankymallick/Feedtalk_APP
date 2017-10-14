@@ -1,9 +1,8 @@
-
 <ion-header>
   <ion-navbar>
     <ion-title>latest</ion-title>
   </ion-navbar>
-  <ion-toolbar no-border-top  [color]="'y_orange'">
+  <ion-toolbar no-border-top [color]="'y_orange'">
     <ion-segment [(ngModel)]="Types" (ionChange)="segmentChanged($event)">
       <ion-segment-button value="All">
         All
@@ -21,41 +20,14 @@
 
 <ion-content class="pageContent">
   <div [ngSwitch]="Types">
-    <ion-list *ngSwitchCase="'All'">
-        <ion-card (click)="openModal({charNum: 0})">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/USS_Eldridge_DE-173_%281944%29.jpg" />
-            <ion-card-content>
-              <ion-card-title>
-                  হিটলার ও জার্মানি কে পরাজিত করতে আমেরিকার অদৃশ্য জাহাজ  !!
-              </ion-card-title>
-              <p>
-                  প্রথম ও দ্বিতীয় বিশ্ব যুদ্ধের সময় অনেক ঘটনা আমাদের সামনে এখনো অজানা , আজ আমরা একটি অবিশ্বাসো ...
-              </p>
-            </ion-card-content>
-            <ion-row no-padding>
-              <ion-col>
-                <button ion-button like small color="primary" icon-start>
-                            <ion-icon name='ios-thumbs-up'></ion-icon>
-                            Like(0)
-                          </button>
-              </ion-col>
-              <ion-col text-right>
-                <button ion-button like small color="primary" icon-start>
-                            <ion-icon name='share-alt'></ion-icon>
-                            Share
-                          </button>
-              </ion-col>
-            </ion-row>
-          </ion-card>   
-      <ion-card *ngFor="let index of [0,1,2,3,4,5,6,7,8,9,10]" (click)="openModal({charNum: 0})">
-        <img src="http://images.indianexpress.com/2016/12/rahul-modi-comments-759.jpg" />
+    <ion-list *ngSwitchCase="'All'">     
+      <ion-card *ngFor="let Feed of LatestFeed" (click)="openModal(Feed)">
+        <img src="{{Feed.headLineImage}}" />
         <ion-card-content>
           <ion-card-title>
-            Rahul Gandhi,Blame Dynasty On Your Family,Not Indian Society
+            {{(Feed.headline>20)? (Feed.headline | slice:0:20)+'....':(Feed.headline) }}
           </ion-card-title>
-          <p>
-            I am not as surprised by Rahul Gandhi's statement in Berkeley, California, as I am by Smriti Irani's ...
-          </p>
+          <p [innerHTML]="Feed.contentPreview"></p>
         </ion-card-content>
         <ion-row no-padding>
           <ion-col>
@@ -71,7 +43,7 @@
                       </button>
           </ion-col>
         </ion-row>
-      </ion-card>        
+      </ion-card>
     </ion-list>
   </div>
 </ion-content>

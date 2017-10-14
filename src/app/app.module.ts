@@ -17,6 +17,10 @@ import firebase from 'firebase';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { RestapiServiceProvider } from '../providers/restapi-service/restapi-service';
+import { HttpModule } from '@angular/http';
+
+
 export const firebaseConfig = {
 
   apiKey: "AIzaSyAM7NSBgxZsPYXDoROUdHMhjmT4_Dcyl8E",
@@ -39,6 +43,7 @@ firebase.initializeApp(firebaseConfig);
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
   ],
@@ -54,7 +59,8 @@ firebase.initializeApp(firebaseConfig);
   providers: [
     StatusBar,
     SplashScreen, GooglePlus,Facebook,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    RestapiServiceProvider
   ]
 })
 export class AppModule { }
