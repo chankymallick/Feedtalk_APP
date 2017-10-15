@@ -22,7 +22,7 @@
 <ion-content class="pageContent">
   <div [ngSwitch]="Types">
     <ion-list *ngSwitchCase="'All'">
-      <ion-item *ngFor="let FeedLink of AllLinks" (click)="openExternalLink(FeedLink.linkUrl)">
+      <ion-item *ngFor="let FeedLink of AllLinks" (click)="openModal(FeedLink)">
         <ion-thumbnail item-start>
           <img height="100px" width="100px" src="{{FeedLink.headlineImageUrl}}">
         </ion-thumbnail>

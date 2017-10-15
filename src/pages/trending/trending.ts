@@ -4,8 +4,9 @@ declare var cordova: any;
 
 import { Component, ViewChild } from '@angular/core';
 import { Content } from 'ionic-angular';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage,ModalController, NavController, NavParams, Platform } from 'ionic-angular';
 import { RestapiServiceProvider } from '../../providers/restapi-service/restapi-service';
+import { LinksViewerPage } from '../../pages/links-viewer/links-viewer'
 
 @IonicPage()
 @Component({
@@ -17,7 +18,12 @@ export class TrendingPage {
   Types = "All";
   AllLinks;
   platform;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private platfrm: Platform, public restApi: RestapiServiceProvider) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private platfrm: Platform, 
+    public restApi: RestapiServiceProvider,
+    public modalCtrl: ModalController) {
     this.platform = platfrm;
     restApi.getLatestFeeds("https://192.168.43.148:8443/feedlinks").then(data => {     
       this.AllLinks =data;    
@@ -37,5 +43,8 @@ export class TrendingPage {
       window.open(link, '_system');     
     });
   }
-
+  openModal(FeedLink:any) {
+    let modal = this.modalCtrl.create(LinksViewerPage, {"feedLinks":FeedLink});
+    modal.present();
+  }
 }

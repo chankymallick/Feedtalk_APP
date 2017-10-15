@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="primary" style="height: 100%;">
+    <ion-title>
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()" large>
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close-circle" ></ion-icon>
+      </button>
+    </ion-buttons>
+    <div class="titleicon">
+      <img src="assets/feedtalk.png" height="50px" width="140px" />
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="articleHeadline">
+   {{FeedLinks.headline}}
+  </div>
+
+  <button ion-button small icon-left style="margin-left:10px;">
+          <ion-icon name="logo-twitter"></ion-icon>
+      By @{{FeedLinks.sourceAgency}}
+        </button>
+  <button style="margin-left:10px;" ion-button small color="header_color" icon-left>
+            <ion-icon name="twitter-logo"></ion-icon>
+         Published on {{FeedLinks.linkDate}}
+          </button>
+  <section class="card-background-page" no-lines>
+    <ion-card>
+      <img src="{{FeedLinks.contentImageUrl}}" />
+      <div class="card-subtitle">Representation</div>
+    </ion-card>
+  </section>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <button ion-button large icon-left color="share">
+      <ion-icon name="md-share" ></ion-icon>        
+    </button>
+        <button ion-button large icon-left>
+      <ion-icon name="logo-twitter"></ion-icon>  
+    </button>
+        <button ion-button large icon-left color="facebook">
+        <ion-icon name="logo-facebook"></ion-icon>  
+      </button>
+        <button ion-button large icon-left color="danger">
+        <ion-icon name="logo-googleplus"></ion-icon>  
+      </button>
+        <button ion-button large icon-left color="secondary">
+        <ion-icon name="logo-whatsapp"></ion-icon>  
+      </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="articleContent" [innerHTML]="getDecodedTrimmedText(FeedLinks.contentInitial)">
+  </div>
+
+
+</ion-content>

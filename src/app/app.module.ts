@@ -5,7 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ArticleviewerPage } from '../pages/articleviewer/articleviewer'
-
+import { LinksViewerPage } from '../pages/links-viewer/links-viewer'
 import { LatestPage } from '../pages/latest/latest';
 import { TrendingPage } from '../pages/trending/trending';
 import { OthersPage } from '../pages/others/others';
@@ -38,7 +38,8 @@ firebase.initializeApp(firebaseConfig);
     TrendingPage,
     LatestPage,
     OthersPage,
-    ArticleviewerPage
+    ArticleviewerPage,
+    LinksViewerPage
 
   ],
   imports: [
@@ -54,7 +55,8 @@ firebase.initializeApp(firebaseConfig);
     TrendingPage,
     LatestPage,
     OthersPage,
-    ArticleviewerPage
+    ArticleviewerPage,
+    LinksViewerPage
   ],
   providers: [
     StatusBar,
