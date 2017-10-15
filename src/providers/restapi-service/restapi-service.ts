@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 /*
@@ -12,16 +13,15 @@ import 'rxjs/add/operator/map';
 export class RestapiServiceProvider {
 
  
-  data;
+
   
-  constructor(public http: Http) {
+  constructor(public http: Http,public progress: LoadingController) {
     
   }
-
+  data;
+  progressObject;
   getLatestFeeds(apiUrl:any) {
-    if (this.data) {
-      return Promise.resolve(this.data);
-    }  
+    this.startProgress("Loading content ...") 
     return new Promise(resolve => {
       this.http.get(apiUrl)
         .map(res => res.json())
@@ -29,7 +29,20 @@ export class RestapiServiceProvider {
                 
           this.data = data;
           resolve(this.data);
+
         });
+        this.stopProgress();
+    });    
+  }
+  public startProgress(val) {
+    this.progressObject = this.progress.create({
+      content: val,
+
+      dismissOnPageChange: true
     });
+    this.progressObject.present();
+  }
+  public stopProgress() {
+    this.progressObject.dismiss();
   }
 }

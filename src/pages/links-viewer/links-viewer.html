@@ -27,12 +27,14 @@
         </button>
   <button style="margin-left:10px;" ion-button small color="header_color" icon-left>
             <ion-icon name="twitter-logo"></ion-icon>
-         Published on {{FeedLinks.linkDate}}
+         Published on {{this.utlityProvider.getTimeInterval(FeedLinks.linkDate)}}
           </button>
   <section class="card-background-page" no-lines>
     <ion-card>
       <img src="{{FeedLinks.contentImageUrl}}" />
-      <div class="card-subtitle">Representation</div>
+      <div class="card-subtitle">
+        <!-- Text Above Image -->
+      </div>
     </ion-card>
   </section>
   <ion-grid>
@@ -55,9 +57,16 @@
       </button>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <div class="articleContent" [innerHTML]="getDecodedTrimmedText(FeedLinks.contentInitial)">
+      </div>
+    </ion-row>
+    <ion-row>
+      <button ion-button outline block large icon-right color="danger" (click)="openExternalLink(FeedLinks.linkUrl)">
+          Click to continue reading ..  
+        <ion-icon name="open"></ion-icon>  
+      </button>
+    
+    </ion-row>
   </ion-grid>
-  <div class="articleContent" [innerHTML]="getDecodedTrimmedText(FeedLinks.contentInitial)">
-  </div>
-
-
 </ion-content>

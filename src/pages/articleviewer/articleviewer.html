@@ -26,7 +26,7 @@
         </button>
   <button style="margin-left:10px;" ion-button small color="header_color" icon-left>
             <ion-icon name="twitter-logo"></ion-icon>
-         Published on {{Feed.publishingDate}}
+         Published on {{this.utlityProvider.getTimeInterval(Feed.publishingDate)}}
           </button>
   <section class="card-background-page" no-lines>
     <ion-card>

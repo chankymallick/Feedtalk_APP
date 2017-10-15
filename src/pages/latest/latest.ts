@@ -27,7 +27,7 @@ export class LatestPage {
     public modalCtrl: ModalController,
     public restApi: RestapiServiceProvider
   ) {   
-    restApi.getLatestFeeds("https://localhost:8443/feed/latest").then(data => {     
+    restApi.getLatestFeeds("https://192.168.43.148:8443/feed/latest").then(data => {     
       this.LatestFeed =data;      
     });   
   }

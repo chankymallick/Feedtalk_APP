@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
+import { UtilityProvider } from '../../providers/utility/utility';
 /**
  * Generated class for the LinksViewerPage page.
  *
@@ -16,7 +17,13 @@ import { ModalController, Platform, ViewController } from 'ionic-angular';
 export class LinksViewerPage {
 
   FeedLinks:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController,public platform: Platform) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public platform: Platform,
+    public utlityProvider : UtilityProvider 
+  ) {
   this.FeedLinks = navParams.get('feedLinks');
   console.log(this.FeedLinks);
   }
@@ -29,5 +36,10 @@ export class LinksViewerPage {
   }
   public getDecodedTrimmedText(encodedText:string){    
     return decodeURI(encodedText);   
+  }
+  public openExternalLink(link:any) {
+    this.platform.ready().then(() => {
+      window.open(link, '_system');     
+    });
   }
 }

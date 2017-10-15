@@ -20,7 +20,7 @@ export class HomePage {
     this.content.scrollToTop();
   }
   constructor(public navCtrl: NavController) {
-    
+
   }
 
 }

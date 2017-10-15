@@ -25,11 +25,10 @@
       <ion-item *ngFor="let FeedLink of AllLinks" (click)="openModal(FeedLink)">
         <ion-thumbnail item-start>
           <img height="100px" width="100px" src="{{FeedLink.headlineImageUrl}}">
-        </ion-thumbnail>
-        <div style="height:80px; white-space: pre-line;">
-         {{FeedLink.headline}}
-        </div>
-        <p>{{FeedLink.sourceAgency}} - {{FeedLink.linkDate}}</p>
+        </ion-thumbnail>    
+        <p>{{FeedLink.sourceAgency}}</p>   
+        <div style="height:50px; white-space: pre-line;">{{FeedLink.headline}}</div>
+        <p>{{getTimeInterval(FeedLink.linkDate)}}</p>
       </ion-item>     
     </ion-list>
   </div>

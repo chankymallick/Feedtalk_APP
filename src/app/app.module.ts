@@ -19,6 +19,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestapiServiceProvider } from '../providers/restapi-service/restapi-service';
 import { HttpModule } from '@angular/http';
+import { UtilityProvider } from '../providers/utility/utility';
 
 
 export const firebaseConfig = {
@@ -62,7 +63,8 @@ firebase.initializeApp(firebaseConfig);
     StatusBar,
     SplashScreen, GooglePlus,Facebook,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    RestapiServiceProvider
+    RestapiServiceProvider,
+    UtilityProvider
   ]
 })
 export class AppModule { }

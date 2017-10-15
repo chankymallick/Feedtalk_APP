@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
+import { UtilityProvider } from '../../providers/utility/utility';
 
 @IonicPage()
 @Component({
@@ -10,7 +11,13 @@ import { ModalController, Platform, ViewController } from 'ionic-angular';
 export class ArticleviewerPage {
 
   Feed:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController,public platform: Platform) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public platform: Platform,
+    public utlityProvider : UtilityProvider 
+  ) {
   this.Feed = navParams.get('feed');
   console.log(this.Feed);
   }
