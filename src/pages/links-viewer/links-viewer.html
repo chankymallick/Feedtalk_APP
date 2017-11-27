@@ -18,7 +18,7 @@
 
 <ion-content>
   <div class="articleHeadline">
-   {{FeedLinks.headline}}
+    {{FeedLinks.headline}}
   </div>
 
   <button ion-button small icon-left style="margin-left:10px;">
@@ -61,12 +61,132 @@
       <div class="articleContent" [innerHTML]="getDecodedTrimmedText(FeedLinks.contentInitial)">
       </div>
     </ion-row>
+
     <ion-row>
       <button ion-button outline block large icon-right color="danger" (click)="openExternalLink(FeedLinks.linkUrl)">
           Click to continue reading ..  
         <ion-icon name="open"></ion-icon>  
       </button>
-    
     </ion-row>
+    <ion-row>
+      <button ion-button block large icon-right color="primary" (click)="openExternalLink(FeedLinks.linkUrl)">
+          Show Comments 
+        <ion-icon name="download"></ion-icon>  
+      </button>
+    </ion-row>
+    <ion-row>
+      
+      <ion-list>
+        <ion-item text-wrap>
+          <ion-avatar item-start>
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+          </ion-avatar>
+          <h2>Finn</h2>
+          <h3>I've had a pretty messed up day. If we just dsfs sfd sdf sfd sdf sdfsdfsdf dfsdf sdfs df</h3>
+          <h2>
+            <button ion-button small outline icon-left  color="secondary" >
+                    <ion-icon name="thumbs-up"></ion-icon>(0)</button>
+            <button ion-button small outline color="danger" icon-left>
+                    <ion-icon name="thumbs-down"></ion-icon>(0)</button>
+            <button ion-button small outline  icon-left>
+                    <ion-icon name="create"></ion-icon>Reply</button>
+          </h2>
+        </ion-item>
+
+        <ion-row>
+          <ion-col col-1>
+          </ion-col>
+          <ion-col col-11>
+            <ion-list>
+              <ion-item text-wrap>
+                <ion-avatar item-start>
+                  <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+                </ion-avatar>
+                <h2>Finn</h2>
+                <h3>I've had a pretty messed up day. If we just dsfs sfd sdf sfd sdf sdfsdfsdf dfsdf sdfs df</h3>
+                <h2>
+                    <button ion-button small outline icon-left  color="secondary" >
+                            <ion-icon name="thumbs-up"></ion-icon>(0)</button>
+                    <button ion-button small outline color="danger" icon-left>
+                            <ion-icon name="thumbs-down"></ion-icon>(0)</button>
+                    <button ion-button small outline  icon-left>
+                            <ion-icon name="create"></ion-icon>Reply</button>
+                  </h2>
+              </ion-item>
+
+              <ion-item text-wrap>
+                <ion-avatar item-start>
+                  <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+                </ion-avatar>
+                <h2>Finn</h2>
+                <h3>I've had a pretty messed up day. If we just dsfs sfd sdf sfd sdf sdfsdfsdf dfsdf sdfs df</h3>
+                <h2>
+                    <button ion-button small outline icon-left  color="secondary" >
+                            <ion-icon name="thumbs-up"></ion-icon>(0)</button>
+                    <button ion-button small outline color="danger" icon-left>
+                            <ion-icon name="thumbs-down"></ion-icon>(0)</button>
+                    <button ion-button small outline  icon-left>
+                            <ion-icon name="create"></ion-icon>Reply</button>
+                  </h2>
+
+              </ion-item>
+
+              <ion-item text-wrap>
+                <ion-avatar item-start>
+                  <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+                </ion-avatar>
+                <h2>Finn</h2>
+                <h3>I've had a pretty messed up day. If we just dsfs sfd sdf sfd sdf sdfsdfsdf dfsdf sdfs df</h3>
+                <h2>
+                    <button ion-button small outline icon-left  color="secondary" >
+                            <ion-icon name="thumbs-up"></ion-icon>(0)</button>
+                    <button ion-button small outline color="danger" icon-left>
+                            <ion-icon name="thumbs-down"></ion-icon>(0)</button>
+                    <button ion-button small outline  icon-left>
+                            <ion-icon name="create"></ion-icon>Reply</button>
+                  </h2>
+
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+
+        <ion-item text-wrap>
+          <ion-avatar item-start>
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+          </ion-avatar>
+          <h2>Finn</h2>
+          <h3>I've had a pretty messed up day. If te erte rter ter tertert ert ert ertertetertt ert ert ert ertertre t rt ertert
+            we just dsfs sfd sdf sfd sdf sdfsdfsdf dfsdf sdfs df</h3>
+            <h2>
+                <button ion-button small outline icon-left  color="secondary" >
+                        <ion-icon name="thumbs-up"></ion-icon>(0)</button>
+                <button ion-button small outline color="danger" icon-left>
+                        <ion-icon name="thumbs-down"></ion-icon>(0)</button>
+                <button ion-button small outline  icon-left>
+                        <ion-icon name="create"></ion-icon>Reply</button>
+              </h2>
+
+        </ion-item>
+        <ion-item text-wrap>
+          <ion-avatar item-start>
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+          </ion-avatar>
+          <h2>Finn</h2>
+          <h3>I've had a pretty messed up day. If te erte rter ter tertert ert ert ertertetertt ert ert ert ertertre t rt ertert
+            we just dsfs sfd sdf sfd sdf sdfsdfsdf dfsdf sdfs df</h3>
+            <h2>
+                <button ion-button small outline icon-left  color="secondary" >
+                        <ion-icon name="thumbs-up"></ion-icon>(0)</button>
+                <button ion-button small outline color="danger" icon-left>
+                        <ion-icon name="thumbs-down"></ion-icon>(0)</button>
+                <button ion-button small outline  icon-left>
+                        <ion-icon name="create"></ion-icon>Reply</button>
+              </h2>
+        </ion-item>
+      </ion-list>
+
+    </ion-row>
+  
   </ion-grid>
 </ion-content>

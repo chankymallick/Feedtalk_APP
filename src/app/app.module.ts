@@ -9,18 +9,20 @@ import { LinksViewerPage } from '../pages/links-viewer/links-viewer'
 import { LatestPage } from '../pages/latest/latest';
 import { TrendingPage } from '../pages/trending/trending';
 import { OthersPage } from '../pages/others/others';
+import { CommentsPage} from '../pages/comments/comments'
 
 import { Facebook } from '@ionic-native/facebook'
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireModule } from 'angularfire2';
 import firebase from 'firebase';
 
+import { AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestapiServiceProvider } from '../providers/restapi-service/restapi-service';
 import { HttpModule } from '@angular/http';
 import { UtilityProvider } from '../providers/utility/utility';
-
+import { ToastController } from 'ionic-angular';
 
 export const firebaseConfig = {
 
@@ -40,7 +42,8 @@ firebase.initializeApp(firebaseConfig);
     LatestPage,
     OthersPage,
     ArticleviewerPage,
-    LinksViewerPage
+    LinksViewerPage,
+    CommentsPage
 
   ],
   imports: [
@@ -57,11 +60,12 @@ firebase.initializeApp(firebaseConfig);
     LatestPage,
     OthersPage,
     ArticleviewerPage,
-    LinksViewerPage
+    LinksViewerPage,
+    CommentsPage
   ],
   providers: [
     StatusBar,
-    SplashScreen, GooglePlus,Facebook,
+    SplashScreen, GooglePlus,Facebook,AlertController,ToastController,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     RestapiServiceProvider,
     UtilityProvider

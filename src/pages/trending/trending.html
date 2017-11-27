@@ -26,9 +26,9 @@
         <ion-thumbnail item-start>
           <img height="100px" width="100px" src="{{FeedLink.headlineImageUrl}}">
         </ion-thumbnail>    
-        <p>{{FeedLink.sourceAgency}}</p>   
-        <div style="height:50px; white-space: pre-line;">{{FeedLink.headline}}</div>
-        <p>{{getTimeInterval(FeedLink.linkDate)}}</p>
+        <p style="font-weight:bold;">{{FeedLink.sourceAgency}}</p>   
+        <div style="height:50px; white-space: pre-line;font-weight:bold;">{{FeedLink.headline}}</div>
+        <p style="font-weight:bold;">{{getTimeInterval(FeedLink.linkDate)}}</p>
       </ion-item>     
     </ion-list>
   </div>

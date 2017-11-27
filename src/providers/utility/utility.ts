@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-
+import { ToastController } from 'ionic-angular';
 /*
   Generated class for the UtilityProvider provider.
 
@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UtilityProvider {
 
-  constructor(public http: Http) {
+  constructor(public http: Http,public toastCtrl: ToastController) {
     console.log('Hello UtilityProvider Provider');
   }
   public getTimeInterval(time1:number){
@@ -43,6 +43,20 @@ export class UtilityProvider {
     catch(err){
       return null;
     } 
+  }
+
+  public presentToast(value:string) {
+    let toast = this.toastCtrl.create({
+      message: value,
+      duration: 4000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+    
+    });
+  
+    toast.present();
   }
 
 }

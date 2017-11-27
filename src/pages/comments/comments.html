@@ -1,0 +1,60 @@
+<ion-grid>
+    <ion-row>
+        <button ion-button block large icon-right color="primary" (click)="newComment()">
+            New Comment
+          <ion-icon name="create"></ion-icon>  
+        </button>
+    </ion-row>
+  <ion-row>
+
+    <ion-list *ngFor="let Comment of Comments" style="width: 100% !important;">
+      <ion-item text-wrap>
+        <ion-avatar item-start>
+          <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+        </ion-avatar>
+        <h2><button ion-button small color="light" >           
+            {{Comment.userName}} 
+          </button>
+          <button ion-button small color="light" >           
+              {{getTimeInterval(Comment.commentTime)}} 
+            </button>
+        </h2>
+        <h3>{{Comment.commentText}}</h3>
+        <h2>
+          <button  id="LikeButton_{{Comment.commentId}}" ion-button small outline icon-left color="secondary" (click)="likeComment(Comment.commentId)" >
+            <ion-icon name="thumbs-up"></ion-icon>{{Comment.likes}}</button>       
+
+          <button  id="DislikeButton_{{Comment.commentId}}" ion-button small outline color="danger" icon-left (click)="dislikeComment(Comment.commentId)" >
+           <ion-icon name="thumbs-down"></ion-icon>{{Comment.dislike}}</button>         
+
+          <button ion-button small outline icon-left (click)="newReply(Comment.commentId,Comment.userName)">
+            <ion-icon name="create"></ion-icon>Reply</button>
+        </h2>
+      </ion-item>
+
+      <ion-row *ngIf="Comment.reply">
+        <ion-col col-1>
+        </ion-col>
+        <ion-col col-11>
+          <ion-list>
+            <ion-item text-wrap *ngFor="let Reply of Comment.reply">
+              <ion-avatar item-start>
+                <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+              </ion-avatar>
+              <h2><button ion-button small color="light" >{{Reply.userName}}</button>
+                <button ion-button small color="light" >{{getTimeInterval(Reply.date)}}</button></h2>
+              <h3>{{Reply.replyText}}</h3>
+              <h2><button ion-button small outline icon-left color="secondary">
+                  <ion-icon name="thumbs-up"></ion-icon>{{Reply.likes}}</button>
+                <button ion-button small outline color="danger" icon-left>
+                  <ion-icon name="thumbs-down"></ion-icon>{{Reply.dislikes}}</button>
+                <!-- <button ion-button small outline  icon-left>
+                          <ion-icon name="create"></ion-icon>Reply</button> -->
+              </h2>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </ion-row>
+</ion-grid>

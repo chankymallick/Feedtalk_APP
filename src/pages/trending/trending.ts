@@ -34,7 +34,7 @@ export class TrendingPage {
   }
   ionViewDidLoad() {
   
-    this.restApi.getLatestFeeds("https://192.168.43.148:8443/feedlinks/latest").then(data => {     
+    this.restApi.getLatestFeeds("feedlinks/latest").then(data => {     
       this.AllLinks =data;    
     });   
     console.log('ionViewDidLoad TrendingPage');

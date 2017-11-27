@@ -3,7 +3,7 @@
     <name>Feedtalk</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.43.148:8100" />
+    <content original-src="index.html" src="http://192.168.1.5:8100" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />
@@ -98,4 +98,7 @@
         <variable name="APP_NAME" value="Feedtalk" />
     </plugin>
     <allow-navigation href="http://192.168.43.148:8100" />
+    <allow-navigation href="http://192.168.43.148:8101" />
+    <allow-navigation href="http://192.168.1.5:8100" />
+    <allow-navigation href="http://192.168.0.29:8100" />
 </widget>

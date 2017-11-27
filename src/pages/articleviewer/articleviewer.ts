@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController, Platform, ViewController } from 'ionic-angular';
 import { UtilityProvider } from '../../providers/utility/utility';
+import { CommentsPage} from '../comments/comments';
 
 @IonicPage()
 @Component({
