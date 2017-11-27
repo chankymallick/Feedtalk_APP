@@ -71,6 +71,12 @@ export class CommentsPage {
     });
   
   }
+  public likeReply(){
+
+  }
+  public dislikeReply(){
+    
+  }
   public reportComment() {
 
   }

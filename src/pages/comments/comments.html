@@ -19,7 +19,7 @@
               {{getTimeInterval(Comment.commentTime)}} 
             </button>
         </h2>
-        <h3>{{Comment.commentText}}</h3>
+        <h3><b>{{Comment.commentText}}</b></h3>
         <h2>
           <button  id="LikeButton_{{Comment.commentId}}" ion-button small outline icon-left color="secondary" (click)="likeComment(Comment.commentId)" >
             <ion-icon name="thumbs-up"></ion-icon>{{Comment.likes}}</button>       
@@ -43,7 +43,7 @@
               </ion-avatar>
               <h2><button ion-button small color="light" >{{Reply.userName}}</button>
                 <button ion-button small color="light" >{{getTimeInterval(Reply.date)}}</button></h2>
-              <h3>{{Reply.replyText}}</h3>
+              <h3><b>{{Reply.replyText}}</b></h3>
               <h2><button ion-button small outline icon-left color="secondary">
                   <ion-icon name="thumbs-up"></ion-icon>{{Reply.likes}}</button>
                 <button ion-button small outline color="danger" icon-left>
