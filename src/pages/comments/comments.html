@@ -10,10 +10,10 @@
     <ion-list *ngFor="let Comment of Comments" style="width: 100% !important;">
       <ion-item text-wrap>
         <ion-avatar item-start>
-          <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+          <img src="{{Comment.photoURL}}">
         </ion-avatar>
         <h2><button ion-button small color="light" >           
-            {{Comment.userName}} 
+            {{Comment.displayName}} 
           </button>
           <button ion-button small color="light" >           
               {{getTimeInterval(Comment.commentTime)}} 
@@ -39,9 +39,9 @@
           <ion-list>
             <ion-item text-wrap *ngFor="let Reply of Comment.reply">
               <ion-avatar item-start>
-                <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
+                <img src="{{Reply.photoURL}}">
               </ion-avatar>
-              <h2><button ion-button small color="light" >{{Reply.userName}}</button>
+              <h2><button ion-button small color="light" >{{Reply.displayName}}</button>
                 <button ion-button small color="light" >{{getTimeInterval(Reply.date)}}</button></h2>
               <h3><b>{{Reply.replyText}}</b></h3>
               <h2><button ion-button small outline icon-left color="secondary">

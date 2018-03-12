@@ -23,6 +23,7 @@ import { RestapiServiceProvider } from '../providers/restapi-service/restapi-ser
 import { HttpModule } from '@angular/http';
 import { UtilityProvider } from '../providers/utility/utility';
 import { ToastController } from 'ionic-angular';
+import { EscapeHtmlPipe } from '../pipes/keep-html.pipe';
 
 export const firebaseConfig = {
 
@@ -43,7 +44,8 @@ firebase.initializeApp(firebaseConfig);
     OthersPage,
     ArticleviewerPage,
     LinksViewerPage,
-    CommentsPage
+    CommentsPage,
+    EscapeHtmlPipe
 
   ],
   imports: [

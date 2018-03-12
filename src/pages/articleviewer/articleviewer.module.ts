@@ -4,7 +4,8 @@ import { ArticleviewerPage } from './articleviewer';
 
 @NgModule({
   declarations: [
-    ArticleviewerPage,
+    ArticleviewerPageModule
+   
   ],
   imports: [
     IonicPageModule.forChild(ArticleviewerPage),

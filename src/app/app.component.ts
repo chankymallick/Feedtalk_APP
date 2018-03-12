@@ -18,6 +18,7 @@ import { Facebook } from '@ionic-native/facebook'
 
 
 
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -53,18 +54,28 @@ export class MyApp {
 
       }
     });
-    this.initializeApp();
-
+    this.initializeApp();     
   }
-
+  public LaunchCounter(){
+    if(localStorage.getItem("LaunchCount")==null 
+    || localStorage.getItem("LaunchCount")=="" 
+    || localStorage.getItem("LaunchCount")==undefined){
+      localStorage.setItem("LaunchCount","1");      
+    }
+    else{    
+      localStorage.setItem("LaunchCount",(parseInt(localStorage.getItem("LaunchCount"))+1).toString());
+    }
+    return localStorage.getItem("LaunchCount");
+  }
   public initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();      
       this.splashScreen.hide();     
     });
   }
-  public setLoggedInStatus() {
-
+  public setLoggedInStatus() {   
+    localStorage.setItem("isLoggedIn","true");
+    localStorage.setItem("UserDetails",JSON.stringify(this.currentUser));   
     this.isLoggedIn = true;
     this.userLoggedInEmail = this.currentUser.email;
     this.userLoggedInImageUrl = this.currentUser.photoURL;
@@ -72,6 +83,8 @@ export class MyApp {
 
   }
   public setLogOutInStatus() {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("UserDetails");
     this.currentUser = null;
     this.isLoggedIn = false;
     this.userLoggedInEmail = null;
