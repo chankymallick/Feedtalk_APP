@@ -4,23 +4,22 @@
   </ion-navbar>
   <ion-toolbar no-border-top [color]="'y_orange'">
     <ion-segment [(ngModel)]="Types" (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="All">
-        All
+      <ion-segment-button value="MostRecent">
+        <b id="MostRecent" style="font-size: 16px !important; color:white;"> Most Recent</b>
       </ion-segment-button>
-      <ion-segment-button value="Politics">
-        Politics
-      </ion-segment-button>
-      <ion-segment-button value="Others">
-        Others
+      <ion-segment-button value="MostRead">
+        <b id="MostRead" style="font-size: 16px !important;">Most Read</b>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content class="pageContent">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
   <div [ngSwitch]="Types">
-    <ion-list *ngSwitchCase="'All'">     
+    <ion-list *ngSwitchCase="'MostRecent'">
       <ion-card *ngFor="let Feed of LatestFeed" (click)="openModal(Feed)">
         <img src="{{Feed.headLineImage}}" />
         <ion-card-content>
@@ -29,7 +28,34 @@
           </ion-card-title>
           <p [innerHTML]="Feed.contentPreview"></p>
         </ion-card-content>
-        <ion-row no-padding>
+      </ion-card>
+    </ion-list>
+    <ion-list *ngSwitchCase="'MostRead'">
+      <ion-card *ngFor="let Feed of LatestFeed" (click)="openModal(Feed)">
+        <img src="{{Feed.headLineImage}}" />
+        <ion-card-content>
+          <ion-card-title>
+            {{(Feed.headline>20)? (Feed.headline | slice:0:20)+'....':(Feed.headline) }}
+          </ion-card-title>
+          <p [innerHTML]="Feed.contentPreview"></p>
+        </ion-card-content>
+        <!-- ** Deleted Code at the End -->
+      </ion-card>
+    </ion-list>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</ion-content>
+
+
+
+
+<!-- <ion-row no-padding>
           <ion-col>
             <button ion-button like small color="primary" icon-start>
                         <ion-icon name='ios-thumbs-up'></ion-icon>
@@ -42,12 +68,4 @@
                         Share
                       </button>
           </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-list>
-    
-        <br><br>
-    <br><br>
-    <br><br>
-  </div>
-</ion-content>
+        </ion-row> -->

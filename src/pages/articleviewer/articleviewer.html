@@ -26,7 +26,7 @@
   </button>
   <button style="margin-left:10px;" ion-button small color="header_color" icon-left>
     <ion-icon name="twitter-logo"></ion-icon>
-    Published on {{this.utlityProvider.getTimeInterval(Feed.publishingDate)}}
+    Published-{{this.utlityProvider.getTimeInterval(Feed.publishingDate)}}
   </button>
   <section class="card-background-page" no-lines>
     <ion-card>
@@ -35,8 +35,9 @@
     </ion-card>
   </section>
   <ion-grid>
-    <ion-row >
-      <ion-col col-12>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col col-10>
         <button ion-button large icon-left color="share">
           <ion-icon name="md-share"></ion-icon>
         </button>
@@ -46,16 +47,14 @@
         <button ion-button large icon-left color="facebook">
           <ion-icon name="logo-facebook"></ion-icon>
         </button>
-        <button ion-button large icon-left color="danger">
-          <ion-icon name="logo-googleplus"></ion-icon>
-        </button>
         <button ion-button large icon-left color="secondary">
           <ion-icon name="logo-whatsapp"></ion-icon>
         </button>
       </ion-col>
+      <ion-col col-1></ion-col>
     </ion-row>
   </ion-grid>
-  <div class="articleContent" [innerHTML]='Feed.content | keepHtml' >    
+  <div class="articleContent" [innerHTML]='Feed.content | keepHtml'>
   </div>
   <page-comments></page-comments>
 </ion-content>

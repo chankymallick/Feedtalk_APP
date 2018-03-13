@@ -17,7 +17,28 @@ import { RestapiServiceProvider } from '../../providers/restapi-service/restapi-
   templateUrl: 'comments.html',
 })
 export class CommentsPage {
+  public Comments;
+  public FeedId;
+  public CommentLikeValue;
+  public CommentDislikeValue;
+  public Email;
+  public loggedInStatus;
 
+  constructor(
+    public restAPI: RestapiServiceProvider,
+    public alertCtrl: AlertController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public utlityProvider: UtilityProvider
+  ) {
+    this.Comments = navParams.get('feed').comments;
+    this.FeedId = navParams.get('feed').feedId;
+    this.CommentDislikeValue = null;
+    this.CommentLikeValue = null;
+    this.loggedInStatus = localStorage.getItem("isLoggedIn");
+
+
+  }
   public getCommentBody(text: string) {
     var body = {
       "commentText": text,
@@ -37,30 +58,7 @@ export class CommentsPage {
     }
     return body;
   }
-  public Comments;
-  public FeedId;
-  public CommentLikeValue;
-  public CommentDislikeValue;
-  public Email;
-  public loggedInStatus;
-  public LikedDislikedComments=[];
-  public LikedDislikedReplies=[];
 
-  constructor(
-    public restAPI: RestapiServiceProvider,
-    public alertCtrl: AlertController,
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public utlityProvider: UtilityProvider
-  ) {
-    this.Comments = navParams.get('feed').comments;
-    this.FeedId = navParams.get('feed').feedId;
-    this.CommentDislikeValue = null;
-    this.CommentLikeValue = null;
-    this.loggedInStatus = localStorage.getItem("isLoggedIn");
-    
-
-  }
   public getUserDetails(type: string) {
     if (this.loggedInStatus != null || this.loggedInStatus != undefined || this.loggedInStatus != "") {
       var User = JSON.parse(localStorage.getItem("UserDetails"));
@@ -88,7 +86,8 @@ export class CommentsPage {
   }
   public likeComment(CommentID: number) {
     if (localStorage.getItem("isLoggedIn") != null) {
-      this.restAPI.putRequest("feed/comments/like/" + this.FeedId + "/" + CommentID + "/", {}, "Comment Liked").then(data => {
+      this.restAPI.putRequest("feed/comments/like/" + this.FeedId + "/" + CommentID + "/"+this.getUserDetails("email")+"/", {}, "Comment Liked").then(data => {
+      
         document.getElementById("LikeButton_" + CommentID).innerHTML = '<span class="button-inner"><ion-icon name="thumbs-up" role="img" class="icon icon-md ion-md-thumbs-up" aria-label="thumbs up" ng-reflect-name="thumbs-up"></ion-icon>' + data + '</span><div class="button-effect"></div>';
       });
     }
@@ -96,29 +95,12 @@ export class CommentsPage {
   public dislikeComment(CommentID: number) {
     if (localStorage.getItem("isLoggedIn") != null) {
       //this.CommentDislikeValue = this.restAPI.putRequest("feed/comments/dislike/" + this.FeedId + "/" + CommentID + "/", {}, "Comment Disliked");
-      this.restAPI.putRequest("feed/comments/dislike/" + this.FeedId + "/" + CommentID + "/", {}, "Comment Disliked").then(data => {
+      this.restAPI.putRequest("feed/comments/dislike/" + this.FeedId + "/" + CommentID + "/"+this.getUserDetails("email")+"/", {}, "Comment Disliked").then(data => {
+        
         document.getElementById("DislikeButton_" + CommentID).innerHTML = '<span class="button-inner"><ion-icon name="thumbs-down" role="img" class="icon icon-md ion-md-thumbs-down" aria-label="thumbs down" ng-reflect-name="thumbs-down"></ion-icon>' + data + '</span><div class="button-effect"></div>';
       });
     }
-  }
-  public isCommentLikedDisliked(userEmail:string) {
-   
-  }
-  public isReplyLikedDisliked(userEmail:string) {
-    
-  }
-  public setCommentLikedDisliked(userEmail:string) {
-    
-  }
-  public setReplyLikedDisliked(userEmail:string) {
-    
-  }
-  public likeReply() {
-
-  }
-  public dislikeReply() {
-
-  }
+  } 
   public reportComment() {
 
   }

@@ -2,16 +2,19 @@
   <ion-navbar>
     <ion-title>latest</ion-title>
   </ion-navbar>
-  <ion-toolbar no-border-top  [color]="'y_orange'">
+  <ion-toolbar no-border-top [color]="'y_orange'">
     <ion-segment [(ngModel)]="Types" (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="All">
-        All
+      <ion-segment-button value="TOPSTORY">
+        <b id="TOPSTORY" style="font-size: 16px !important; color:white;">TOP STORY</b>
       </ion-segment-button>
-      <ion-segment-button value="Politics">
-        Politics
+      <ion-segment-button value="CRICKET">
+        <b id="CRICKET" style="font-size: 16px !important;">CRICKET</b>
       </ion-segment-button>
-      <ion-segment-button value="Others">
-        Others
+      <ion-segment-button value="TECH">
+        <b id="TECH" style="font-size: 16px !important; ">TECH</b>
+      </ion-segment-button>
+      <ion-segment-button value="MOVIES">
+        <b id="MOVIES" style="font-size: 16px !important;">MOVIES</b>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -20,16 +23,58 @@
 
 
 <ion-content class="pageContent">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <div [ngSwitch]="Types">
-    <ion-list *ngSwitchCase="'All'">
+    <ion-list *ngSwitchCase="'TOPSTORY'">
       <ion-item *ngFor="let FeedLink of AllLinks" (click)="openModal(FeedLink)">
         <ion-thumbnail item-start>
           <img height="100px" width="100px" src="{{FeedLink.headlineImageUrl}}">
-        </ion-thumbnail>    
-        <p style="font-weight:bold;">{{FeedLink.sourceAgency}}</p>   
+        </ion-thumbnail>
+        <p style="font-weight:bold;">{{FeedLink.sourceAgency}}</p>
         <div style="height:50px; white-space: pre-line;font-weight:bold;">{{FeedLink.headline}}</div>
         <p style="font-weight:bold;">{{getTimeInterval(FeedLink.linkDate)}}</p>
-      </ion-item>     
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'CRICKET'">
+      <ion-item *ngFor="let FeedLink of AllLinks" (click)="openModal(FeedLink)">
+        <ion-thumbnail item-start>
+          <img height="100px" width="100px" src="{{FeedLink.headlineImageUrl}}">
+        </ion-thumbnail>
+        <p style="font-weight:bold;">{{FeedLink.sourceAgency}}</p>
+        <div style="height:50px; white-space: pre-line;font-weight:bold;">{{FeedLink.headline}}</div>
+        <p style="font-weight:bold;">{{getTimeInterval(FeedLink.linkDate)}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'TECH'">
+      <ion-item *ngFor="let FeedLink of AllLinks" (click)="openModal(FeedLink)">
+        <ion-thumbnail item-start>
+          <img height="100px" width="100px" src="{{FeedLink.headlineImageUrl}}">
+        </ion-thumbnail>
+        <p style="font-weight:bold;">{{FeedLink.sourceAgency}}</p>
+        <div style="height:50px; white-space: pre-line;font-weight:bold;">{{FeedLink.headline}}</div>
+        <p style="font-weight:bold;">{{getTimeInterval(FeedLink.linkDate)}}</p>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'MOVIES'">
+      <ion-item *ngFor="let FeedLink of AllLinks" (click)="openModal(FeedLink)">
+        <ion-thumbnail item-start>
+          <img height="100px" width="100px" src="{{FeedLink.headlineImageUrl}}">
+        </ion-thumbnail>
+        <p style="font-weight:bold;">{{FeedLink.sourceAgency}}</p>
+        <div style="height:50px; white-space: pre-line;font-weight:bold;">{{FeedLink.headline}}</div>
+        <p style="font-weight:bold;">{{getTimeInterval(FeedLink.linkDate)}}</p>
+      </ion-item>
     </ion-list>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </ion-content>

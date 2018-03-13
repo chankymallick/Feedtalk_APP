@@ -13,9 +13,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class LatestPage {
   @ViewChild(Content) content: Content;
-  Types = "All";
+  Types = "MostRecent";
   LatestFeed:any;
-  
+  public LastActiveSegment ="";
 
   public getDecodedTrimmedText(encodedText:string){
     
@@ -26,17 +26,21 @@ export class LatestPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public restApi: RestapiServiceProvider
-  ) {   
+  ) {       
+    this.LastActiveSegment = this.Types;
     restApi.getLatestFeeds("feed/latest").then(data => {     
       this.LatestFeed =data;      
     });   
   }
 
   public segmentChanged(eventObj: any) {
-    this.content.scrollToTop();
+    this.content.scrollToTop();    
+    document.getElementById(this.LastActiveSegment).style.color="#488AFF" 
+    document.getElementById(eventObj.value).style.color="white" 
+    this.LastActiveSegment =eventObj.value;       
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LatestPage');
+    console.log('ionViewDidLoad LatestPage');   
   }
   openModal(Feed:any) {
     let modal = this.modalCtrl.create(ArticleviewerPage, {"feed":Feed});
@@ -46,6 +50,15 @@ export class LatestPage {
     var customDate = new Date(date);
 
   }
+  public doRefresh(refresher) {
+    this.restApi.getLatestFeeds("feed/latest").then(data => {     
+      this.LatestFeed =data;      
+    });
+    setTimeout(() => {    
+      refresher.complete();
+    }, 2000);
+  }
+
 }
 
 
