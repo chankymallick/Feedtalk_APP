@@ -24,7 +24,8 @@ export class RestapiServiceProvider {
   public likeStatus;
   public Comments;
   public progressObject;
-  public localHOST = "http://192.168.1.6:8080/";
+  public localHOST = "http://192.168.43.200:8080/";
+  
   //public localHOST = "https://feedtalk-api.herokuapp.com/";
  
   public postNewComment(comment:any,feedid:number){  

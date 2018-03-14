@@ -4,11 +4,11 @@
   </ion-navbar>
   <ion-toolbar no-border-top [color]="'y_orange'">
     <ion-segment [(ngModel)]="Types" (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="MostRecent">
-        <b id="MostRecent" style="font-size: 16px !important; color:white;"> Most Recent</b>
+      <ion-segment-button value="mostrecent">
+        <b id="mostrecent" style="font-size: 16px !important; color:white;"> Most Recent</b>
       </ion-segment-button>
-      <ion-segment-button value="MostRead">
-        <b id="MostRead" style="font-size: 16px !important;">Most Read</b>
+      <ion-segment-button value="mostread">
+        <b id="mostread" style="font-size: 16px !important;">Most Read</b>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -19,7 +19,7 @@
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
   <div [ngSwitch]="Types">
-    <ion-list *ngSwitchCase="'MostRecent'">
+    <ion-list *ngSwitchCase="'mostrecent'">
       <ion-card *ngFor="let Feed of LatestFeed" (click)="openModal(Feed)">
         <img src="{{Feed.headLineImage}}" />
         <ion-card-content>
@@ -30,7 +30,7 @@
         </ion-card-content>
       </ion-card>
     </ion-list>
-    <ion-list *ngSwitchCase="'MostRead'">
+    <ion-list *ngSwitchCase="'mostread'">
       <ion-card *ngFor="let Feed of LatestFeed" (click)="openModal(Feed)">
         <img src="{{Feed.headLineImage}}" />
         <ion-card-content>

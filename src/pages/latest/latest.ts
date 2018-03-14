@@ -13,7 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class LatestPage {
   @ViewChild(Content) content: Content;
-  Types = "MostRecent";
+  Types = "mostrecent";
   LatestFeed:any;
   public LastActiveSegment ="";
 
@@ -28,7 +28,7 @@ export class LatestPage {
     public restApi: RestapiServiceProvider
   ) {       
     this.LastActiveSegment = this.Types;
-    restApi.getLatestFeeds("feed/latest").then(data => {     
+    restApi.getLatestFeeds("feed/"+this.LastActiveSegment).then(data => {     
       this.LatestFeed =data;      
     });   
   }
@@ -37,7 +37,13 @@ export class LatestPage {
     this.content.scrollToTop();    
     document.getElementById(this.LastActiveSegment).style.color="#488AFF" 
     document.getElementById(eventObj.value).style.color="white" 
-    this.LastActiveSegment =eventObj.value;       
+    this.LastActiveSegment =eventObj.value;    
+    this.loadFeeds(eventObj.value);
+  }
+  public loadFeeds(type: string) {
+    this.restApi.getLatestFeeds("feed/" + type).then(data => {
+      this.LatestFeed = data;
+    });
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad LatestPage');   
@@ -51,9 +57,7 @@ export class LatestPage {
 
   }
   public doRefresh(refresher) {
-    this.restApi.getLatestFeeds("feed/latest").then(data => {     
-      this.LatestFeed =data;      
-    });
+   this.loadFeeds(this.LastActiveSegment);
     setTimeout(() => {    
       refresher.complete();
     }, 2000);
